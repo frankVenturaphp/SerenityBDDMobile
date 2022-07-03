@@ -9,17 +9,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <!--<maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>3.1.15</serenity.version>
+        <cucumber.version>4.2.0</cucumber.version>
+        <serenity.version>3.2.0</serenity.version>
         <encoding>UTF-8</encoding>
         <tags></tags>
         <webdriver.base.url>appium</webdriver.base.url>
         <slf4j.version>1.7.21</slf4j.version>
         <webdriver.driver>appium</webdriver.driver>
     </properties>
-
     <build>
         <plugins>
             <plugin>
@@ -31,23 +29,13 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>3.0.0-M7</version>
                 <configuration>
                     <includes>
                         <include>**/*Runner*.java</include>
                     </includes>
-                  <!--><systemPropertyVariables>
-                       <serenity.sourceDirectory>target/site/serenity</serenity.sourceDirectory>
-                       <serenity.outputDirectory>target/site/serenity</serenity.outputDirectory>
-                       <project.reporting.OutputDirectory>target/site/serenity</project.reporting.OutputDirectory>-->
-                       <!--<webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
-                       <serenity.take.screenshots>AFTER_EACH_STEP</serenity.take.screenshots>
-                       <serenity.reports.show.step.details>true</serenity.reports.show.step.details>
-                       <appium.platformName>ANDROID</appium.platformName>
-                       <appium.app>${project.basedir}/app/Contacts.apk</appium.app>
-                       <serenity.driver.capabilities>appium.Hub.platformName:ANDROID;platformName:Android;deviceName:NotUsed;appPackage:com.jayway.contacts;appActivity:com.jayway.contacts.MainActivity;newCommandTimeout:10000</serenity.driver.capabilities>-->
-                    <!--</systemPropertyVariables>-->
                     <parallel>classes</parallel>
                     <parallel>methods</parallel>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
@@ -73,7 +61,7 @@
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.version}</version>
+                <version>3.1.15</version>
                 <configuration>
                     <tags>${tags}</tags>
                 </configuration>
@@ -90,28 +78,6 @@
         </plugins>
     </build>
     <dependencies>
-
-
-        <!--  <dependency>
-              <groupId>com.google.guava</groupId>
-              <artifactId>guava</artifactId>
-              <version>22.0</version>
-          </dependency>
-         <dependency>
-              <groupId>com.google.api-client</groupId>
-              <artifactId>google-api-client-appengine</artifactId>
-              <version>1.23.0</version>
-              <exclusions>
-                  <exclusion>
-                      <groupId>com.google.guava</groupId>
-                      <artifactId>guava-jdk5</artifactId>
-                  </exclusion>
-              </exclusions>
-          </dependency>
-  -->
-
-
-
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-core</artifactId>
@@ -156,20 +122,23 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>8.0.0-beta</version>
+            <version>7.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.1.1</version>
+            <version>4.1.2</version>
         </dependency>
-
-        <!--
         <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>1.1.1</version>
-        </dependency>-->
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>4.1.2</version>
+        </dependency>
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
